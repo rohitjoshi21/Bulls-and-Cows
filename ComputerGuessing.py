@@ -24,11 +24,11 @@ def getClues(num, guess):
     for i, n in enumerate(guess):
         if n in num:
             if guess[i] == num[i]:
-                resp.append('f')
+                resp.append('b')
             else:
-                resp.append('p')
+                resp.append('c')
     if resp == []:
-        resp.append('b')
+        resp.append('n')
 
     resp.sort()
     return ''.join(resp)
@@ -58,9 +58,9 @@ def inputClues(valids):
     '''
     inp = input('Enter the clues? ').lower()
     inp = inp.replace(' ', '')
-    inp = inp.replace('pico', 'p')
-    inp = inp.replace('bagel', 'b')
-    inp = inp.replace('fermi', 'f')
+    inp = inp.replace('cow', 'c')
+    inp = inp.replace('bull', 'b')
+
 
     hint = ''.join(sorted(list(inp))).lower()
 
@@ -76,10 +76,10 @@ def main(DIGITS, CHANCES):
 
     VALID_CLUES = []
     for i in range(1, DIGITS + 1):
-        clues = map(''.join, combinations_with_replacement('fp', i))
+        clues = map(''.join, combinations_with_replacement('bc', i))
         for clue in clues:
             VALID_CLUES.append(clue)
-    VALID_CLUES.append('b')
+    VALID_CLUES.append(' ')
 
     # print(VALID_CLUES)
     guessCount = 1
@@ -97,7 +97,7 @@ def main(DIGITS, CHANCES):
         hint = inputClues(VALID_CLUES)
 
         # If correct
-        if hint == 'f' * DIGITS:
+        if hint == 'b' * DIGITS:
             found = True
             print('\nWow, I did it.')
 
@@ -111,11 +111,10 @@ def main(DIGITS, CHANCES):
 
 welcomeText = '''
 You should think of a 3-digit number. I will try to guess what it is.
-Here are some clues which you should give me for my each guesses:
-  When you say:          That means:
-  Pico   -->P      One digit is correct but in the wrong position.
-  Fermi  -->F      One digit is correct and in the right position.
-  Bagels -->B      No digit is correct.
+Here are some clues which should be given for each guesses:
+  Clues:           Meaning:
+  Bull  --> B      One digit is correct and in the right position.
+  Cow   --> C      One digit is correct but in the wrong position.
 
 I assume you have thought of a number. I will try to guess it.
 

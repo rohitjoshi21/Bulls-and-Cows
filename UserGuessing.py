@@ -14,11 +14,11 @@ def getclues(sec, inp):
     for i, n in enumerate(inp):
         if n in sec:
             if inp[i] == sec[i]:
-                resp.append('Fermi')
+                resp.append('Bull')
             else:
-                resp.append('Pico')
+                resp.append('Cow')
     if resp == []:
-        resp.append('Bagels')
+        resp.append('Nothing matched')
     resp.sort()
     return ' '.join(resp)
 
@@ -46,9 +46,9 @@ welcometext = \
 I am thinking of a 3-digit number. Try to guess what it is.
 Here are some clues:
 When I say:   That means:
-  Pico        One digit is correct but in the wrong position.
-  Fermi       One digit is correct and in the right position.
-  Bagels      No digit is correct.
+  Cow         A digit is correct but in the wrong position.
+  Bull        A digit is correct and in the right position.
+
 I have thought up a number. You have to guess the number now.
 '''
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     print(welcometext)
     play = True
     while play:
-        main()
+        main(DIGIT, GUESS)
         ans = input('Do you want to play again? Y/N ')
         print()
         if ans.lower() not in ['y', 'yes', 'ok', '1']:

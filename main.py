@@ -3,13 +3,12 @@ import ComputerGuessing
 
 welcomeText = \
     '''
-Welcome to the game of number.
-In this game, one should think of a 3-digit number. Then another will try to guess what it is.
+Welcome to the game of Bulls and Cows.
+In this game, one should think of a 3-digit number having different digits. Then another will try to guess what it is.
 Here are some clues which should be given for each guesses:
   Clues:           Meaning:
-  Pico  --> P      One digit is correct but in the wrong position.
-  Fermi --> F      One digit is correct and in the right position.
-  Bagels--> B      No digit is correct.
+  Bull  --> B      One digit is correct and in the right position.
+  Cow   --> C      One digit is correct but in the wrong position.
 
 Lets start the game
 
