@@ -1,4 +1,4 @@
-# Pico, Bagel and Fermi
+# Bulls and Cows
 
 ### A simple CLI game made in python/
 
